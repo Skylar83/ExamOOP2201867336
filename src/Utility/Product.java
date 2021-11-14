@@ -206,6 +206,7 @@ public class Product extends JPanel implements ActionListener {
                         case 1:{
                             rs = conn.executeUpdate("DELETE FROM icecream WHERE ID='"+table.getValueAt(row,0)+"'");
                             try {
+                                JOptionPane.showMessageDialog(null, "Hapus data berhasil!", "Success", JOptionPane.INFORMATION_MESSAGE);
                                 Refresh();
                             } catch (SQLException e) {
                                 e.printStackTrace();
@@ -293,15 +294,6 @@ public class Product extends JPanel implements ActionListener {
     public void Refresh() throws SQLException {
     dtm.setRowCount(0);
     Data();
-    }
-
-
-    public static void main (String[] args) throws SQLException {
-        JFrame frame = new JFrame ("Penjualan Ice Cream");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new Product());
-        frame.pack();
-        frame.setVisible (true);
     }
 
 
